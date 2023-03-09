@@ -56,17 +56,24 @@ operation= {
     "/":subs
 }
 
-num1=int(input("first number: "))
+def cal():
+    num1=int(input("first number: "))
+    for symbol in operation:
+      print(symbol)
+    should_con=True
+    while should_con:
+     operation_symbol=input("Pick the symbol: ")
+     cal_function=operation[operation_symbol]
+     num2=int(input("secound number: "))
+     answer=cal_function(num1,num2)
 
-num2=int(input("secound number: "))
-
-for symbol in operation:
-    print(symbol)
-operation_symbol=input("Pick the symbol: ")
-cal_function=operation[operation_symbol]
-answer=cal_function(num1,num2)
-print(f"{num1} {operation_symbol} {num2} ={answer}")
-
+     print(f"{num1} {operation_symbol} {num2} ={answer}")
+     if input(f"Do you want to continoue with {answer} ? :if yes press 'y' or no 'n' to exist : ")=='y':
+         num1=answer
+     else:
+          should_con=False
+cal()
+  
 
 
 
